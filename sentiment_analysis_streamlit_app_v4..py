@@ -28,8 +28,8 @@ factory = StemmerFactory()
 stemmer = factory.create_stemmer()
 
 # Load model dan vectorizer
-model = load('sentiment_model.joblib')
-tfidf_vectorizer = load('tfidf_vectorizer.joblib')
+model = load('C:/Users/MyMSI/Documents/Kuliah S2/Machine Learning/Deployment/sentiment_model.joblib')
+tfidf_vectorizer = load('C:/Users/MyMSI/Documents/Kuliah S2/Machine Learning/Deployment/tfidf_vectorizer.joblib')
 
 # Dictionary for sentiment labels
 sentiment_labels = {2: 'Positive', 1: 'Neutral', 0: 'Negative'}
@@ -110,11 +110,21 @@ if submit_text and user_text:
 uploaded_file = st.file_uploader("Unggah file CSV untuk analisis", type="csv")
 if uploaded_file is not None:
     data = pd.read_csv(uploaded_file)
+
     if 'comment_rests' in data.columns:
-        st.write(data.sample(5))
+        # Membersihkan data
+        data['comment_rests'] = data['comment_rests'].fillna('')  # Isi NaN dengan string kosong
+        data['comment_rests'] = data['comment_rests'].astype(str)  # Konversi semua menjadi string
+
+        # Preprocess dan prediksi sentimen
         data['comment_cleaned'] = data['comment_rests'].apply(preprocess_text)
         data['predicted_sentiment'] = data['comment_cleaned'].apply(predict_sentiment)
-        st.write(data[['comment_rests', 'predicted_sentiment']])
+
+        # Tampilkan hasil
+        st.write("Hasil Analisis Sentimen:")
+        st.write(data[['comment_rests', 'comment_cleaned', 'predicted_sentiment']])
+
+        # Visualisasi WordCloud
         if st.button('Tampilkan WordCloud'):
             visualize_wordcloud(data['comment_cleaned'])
     else:
