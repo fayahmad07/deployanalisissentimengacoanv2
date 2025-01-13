@@ -74,7 +74,17 @@ def preprocess_text(text):
     text = doubel_char(text)
     
     # Step C.2: Slang conversion (use a dictionary)
+   bagian slang_dict ganti pake code ini buat load-nya:
     slang_dict = {}
+    with open('slang_dict.txt', 'r') as f:
+        for line in f:
+        # Remove whitespace and check if ':' exists
+            line = line.strip()
+            if ':' in line:
+                key, value = line.split(':', 1)  # Split into at most 2 parts
+                slang_dict[key.strip()] = value.strip()
+            else:
+                print(f"Skipping invalid line: {line}")
     with open('slang_dict1.txt', 'r') as f:
         for line in f:
             key, value = line.strip().split(':')
