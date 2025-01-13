@@ -75,7 +75,7 @@ def preprocess_text(text):
     
     # Step C.2: Slang conversion (use a dictionary)
     slang_dict = {}
-    with open('slang_dict.txt', 'r') as f:
+    with open('slang_dict1.txt', 'r') as f:
         for line in f:
             key, value = line.strip().split(':')
             slang_dict[key] = value
