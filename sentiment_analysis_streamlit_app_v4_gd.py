@@ -25,8 +25,8 @@ stemmer = factory.create_stemmer()
 
 # Load model and vectorizer
 from joblib import load
-model = load('C:/Users/MyMSI/Documents/Kuliah S2/Machine Learning/Deployment/sentiment_model.joblib')
-tfidf_vectorizer = load('C:/Users/MyMSI/Documents/Kuliah S2/Machine Learning/Deployment/tfidf_vectorizer.joblib')
+model = load('sentiment_model.joblib')
+tfidf_vectorizer = load('tfidf_vectorizer.joblib')
 
 # Dictionary for sentiment labels
 sentiment_labels = {2: 'Positive', 1: 'Neutral', 0: 'Negative'}
