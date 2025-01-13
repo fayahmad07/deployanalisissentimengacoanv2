@@ -75,7 +75,7 @@ def preprocess_text(text):
     
     # Step C.2: Slang conversion (use a dictionary)
     slang_dict = {}
-    with open('C:/Users/MyMSI/Documents/Kuliah S2/Machine Learning/Deployment/slang_dict.txt', 'r') as f:
+    with open('slang_dict.txt', 'r') as f:
         for line in f:
         # Remove whitespace and check if ':' exists
             line = line.strip()
