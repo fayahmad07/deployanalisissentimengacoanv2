@@ -25,7 +25,7 @@ stemmer = factory.create_stemmer()
 
 # Load model and vectorizer
 from joblib import load
-model = load('sentiment_lstm.joblib')
+model = load('sentiment_model.joblib')
 tfidf_vectorizer = load('tfidf_vectorizer.joblib')
 
 # Dictionary for sentiment labels
