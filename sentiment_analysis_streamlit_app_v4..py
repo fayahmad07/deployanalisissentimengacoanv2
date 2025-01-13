@@ -25,11 +25,11 @@ stemmer = factory.create_stemmer()
 
 # Load model and vectorizer
 from joblib import load
-model = load('sentiment_model.joblib')
+model = load('sentiment_lstm.joblib')
 tfidf_vectorizer = load('tfidf_vectorizer.joblib')
 
 # Dictionary for sentiment labels
-sentiment_labels = {2: 'Positif', 1: 'Netral', 0: 'Negatif'}
+sentiment_labels = {0: 'Negative', 1: 'Neutral', 2: 'Positive'}
 
 # Function for preprocessing the text
 def preprocess_text(text):
