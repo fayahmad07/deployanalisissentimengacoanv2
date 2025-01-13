@@ -74,7 +74,6 @@ def preprocess_text(text):
     text = doubel_char(text)
     
     # Step C.2: Slang conversion (use a dictionary)
-   bagian slang_dict ganti pake code ini buat load-nya:
     slang_dict = {}
     with open('slang_dict.txt', 'r') as f:
         for line in f:
