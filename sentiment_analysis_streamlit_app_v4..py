@@ -84,7 +84,7 @@ def preprocess_text(text):
                 slang_dict[key.strip()] = value.strip()
             else:
                 print(f"Skipping invalid line: {line}")
-    with open('slang_dict1.txt', 'r') as f:
+    with open('slang_dict.txt', 'r') as f:
         for line in f:
             key, value = line.strip().split(':')
             slang_dict[key] = value
